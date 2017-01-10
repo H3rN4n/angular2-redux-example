@@ -1,3 +1,6 @@
 <h1>
   {{title}}
 </h1>
+{{ movies$ | async }}
+<button (click)="onClick()">call an action</button>
+<app-other [list]="movies$" (add)="onClick()"></app-other>
