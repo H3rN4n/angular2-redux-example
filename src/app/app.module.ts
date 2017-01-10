@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { OtherComponent } from './components/other.component'
+import { OtherComponent } from './components/other.component';
 
 import { NgReduxModule, NgRedux, DevToolsExtension } from 'ng2-redux';
 import { rootReducer } from './store';
+//import reduxLogger from 'redux-logger';
+const createLogger = require('redux-logger');
 
 import { AppComponent } from './app.component';
 
@@ -25,6 +27,10 @@ import { AppComponent } from './app.component';
 })
 export class AppModule {
   constructor(ngRedux: NgRedux<any>) {
-    ngRedux.configureStore(rootReducer, {});
+    ngRedux.configureStore(rootReducer, {}, [createLogger({
+      level: 'info',
+      collapsed: true,
+      //stateTransformer: deimmutify
+    })]);
   }
 }
