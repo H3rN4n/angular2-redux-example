@@ -7,11 +7,41 @@
 // } from 'redux';
 
 import * as redux from 'redux';
-//import { reduxLogger } from 'redux-logger';
+import * as immutable from 'immutable';
 
-function moviesReducer(state = 'soy el reducer', action) {
+const moviesInitialState = {
+    data: [
+        {
+            'title': 'Batman'
+        },
+        {
+            'title': 'Rocky'
+        },
+        {
+            'title': 'La Momia'
+        }
+    ]
+};
+function addMovie(state, action) {
+    const newState = [].concat(state.data);
+    newState.push(action.payload);
+    return {data: newState};
+}
+
+function removeMovie(state, action) {
+    const index = state.data.indexOf(action.payload);
+    console.log(index);
+    state.data.splice(index, 1);
+    return state;
+}
+
+function moviesReducer(state = moviesInitialState, action) {
+
+    //const newState = immutable.Map(state);
+
     switch (action.type) {
-        case 'concat': return state + action.payload;
+        case 'add': return addMovie(state, action);
+        case 'remove': return removeMovie(state, action);
         default: return state;
     }
 };

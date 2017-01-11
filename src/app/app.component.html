@@ -1,6 +1,10 @@
 <h1>
   {{title}}
 </h1>
-{{ movies$ | async }}
-<button (click)="onClick()">call an action</button>
-<app-other [list]="movies$" (add)="onClick()"></app-other>
+<!--{{ movies$ | async | json }}-->
+<ul>
+  <li *ngFor="let movie of (movies$ | async).data; let i = index;">
+    <app-other [movie]="movie" (remove)="removeMovie(movie)"></app-other>
+  </li>
+</ul>
+<button (click)="addMovie()">call an action</button>

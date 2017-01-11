@@ -9,6 +9,6 @@ import { NgRedux } from 'ng2-redux';
 })
 
 export class OtherComponent {
-  @Input() list: Observable<string>;
-  @Output() add = new EventEmitter<void>();
+  @Input() movie: Observable<any>;
+  @Output() remove = new EventEmitter<void>();
 }

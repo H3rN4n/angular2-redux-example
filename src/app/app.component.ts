@@ -9,13 +9,19 @@ import { NgRedux } from 'ng2-redux';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  public title = 'Movie List!';
 
-  @select() movies$: Observable<number>;
+  @select() movies$: Observable<any>;
 
-  constructor(private ngRedux: NgRedux<any>) { }
+  constructor(private ngRedux: NgRedux<any>) { 
+    this.movies$.subscribe(data => console.log(data))
+  }
 
-  onClick() {
-    this.ngRedux.dispatch({ type: 'concat', payload: ' y ahora agrego un action' });
+  addMovie() {
+    this.ngRedux.dispatch({ type: 'add', payload: { title: 'La Mosca' } });
+  }
+
+  removeMovie(movie) {
+    this.ngRedux.dispatch({ type: 'remove', payload: movie });
   }
 }
