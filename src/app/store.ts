@@ -11,25 +11,10 @@ import { NgRedux } from 'ng2-redux';
 import * as redux from 'redux';
 import * as immutable from 'immutable';
 
-// const moviesInitialState = {
-//     data: [
-//         {
-//             'title': 'Batman'
-//         },
-//         {
-//             'title': 'Rocky'
-//         },
-//         {
-//             'title': 'La Momia'
-//         }
-//     ]
-// };
 
 // @Injectable()
 // export class MoviesActions {
 //     constructor(private redux: NgRedux<any>, public moviesService: MoviesService) { }
-
-    
 // }
 
 export function moviesReducer(state = {}, action) {
@@ -37,15 +22,15 @@ export function moviesReducer(state = {}, action) {
     //const newState = immutable.Map(state);
 
     function addMovie(state, action) {
-        const newState = [].concat(state.data);
-        newState.push(action.payload);
-        return { data: newState };
+        let newState = Object.assign({}, state);
+        newState[action.payload.id] = action.payload;
+        return newState;
     }
 
     function removeMovie(state, action) {
-        const index = state.data.indexOf(action.payload);
-        state.data.splice(index, 1);
-        return state;
+        let newState = Object.assign({}, state);
+        delete newState[action.payload.key];
+        return newState;
     }
 
     function setMovies(state, action) {

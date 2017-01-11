@@ -3,6 +3,8 @@
 <form action="">
     <label for="movieTitle">Title</label>
     <input name="movieTitle" type="text" [(ngModel)]="newMovie.name">
+    <label for="movieDesc">Description</label>
+    <input name="movieDesc" type="text" [(ngModel)]="newMovie.description">
     <button (click)="add.emit()">add</button>
 </form>
 <hr>

@@ -53,7 +53,6 @@ export class MoviesService {
         const json: any[] = res.json().payload.Items;
         let data: Movie[] = [];
         json.forEach(movieData => {
-          console.log(movieData);
           data.push(new Movie(movieData));
         });
         return data;
