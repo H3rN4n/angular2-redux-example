@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { OtherComponent } from './components/other.component';
+import { MovieItemComponent } from './components/movie-item.component';
+import { AddMovieFormComponent } from './components/add-movie-form.component';
 
 import { NgReduxModule, NgRedux, DevToolsExtension } from 'ng2-redux';
 import { rootReducer } from './store';
@@ -14,7 +15,8 @@ import { AppComponent } from './app.component';
 @NgModule({
   declarations: [
     AppComponent,
-    OtherComponent
+    MovieItemComponent,
+    AddMovieFormComponent
   ],
   imports: [
     BrowserModule,

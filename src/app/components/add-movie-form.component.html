@@ -1,0 +1,6 @@
+<h4>New Movie</h4>
+<form action="">
+    <label for="movieTitle">Title</label>
+    <input name="movieTitle" type="text" [(ngModel)]="newMovie.title">
+</form>
+<button (click)="add.emit()">add</button>

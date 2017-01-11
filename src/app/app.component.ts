@@ -10,6 +10,9 @@ import { NgRedux } from 'ng2-redux';
 })
 export class AppComponent {
   public title = 'Movie List!';
+  public newMovie = {
+    title: ''
+  };
 
   @select() movies$: Observable<any>;
 
@@ -18,7 +21,8 @@ export class AppComponent {
   }
 
   addMovie() {
-    this.ngRedux.dispatch({ type: 'add', payload: { title: 'La Mosca' } });
+    this.ngRedux.dispatch({ type: 'add', payload: Object.assign({}, this.newMovie) });
+    this.newMovie.title = "";
   }
 
   removeMovie(movie) {
