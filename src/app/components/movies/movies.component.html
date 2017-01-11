@@ -1,0 +1,10 @@
+<h1>
+  {{title}}
+</h1>
+<app-add-movie-form [newMovie]="newMovie" (add)="addMovie()"></app-add-movie-form>
+<h4>Available Movies</h4>
+<ul>
+  <li *ngFor="let movie of (movies$ | async | keys); let i = index;">
+    <app-movie-item [movie]="movie.value" (remove)="removeMovie(movie)"></app-movie-item>
+  </li>
+</ul>

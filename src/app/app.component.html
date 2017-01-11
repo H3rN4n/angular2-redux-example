@@ -1,11 +1,5 @@
 <h1>
   {{title}}
 </h1>
-<!--{{ movies$ | async | json }}-->
-<app-add-movie-form [newMovie]="newMovie" (add)="addMovie()"></app-add-movie-form>
-<ul>
-  <li *ngFor="let movie of (movies$ | async).data; let i = index;">
-    <app-movie-item [movie]="movie" (remove)="removeMovie(movie)"></app-movie-item>
-  </li>
-</ul>
+<router-outlet></router-outlet>
 <hr>
