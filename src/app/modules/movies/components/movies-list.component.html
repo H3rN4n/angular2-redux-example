@@ -5,6 +5,6 @@
 <h4>Available Movies</h4>
 <ul>
   <li *ngFor="let movie of (movies$ | async | keys); let i = index;">
-    <app-movie-item [movie]="movie.value" (remove)="removeMovie(movie)"></app-movie-item>
+    <app-movie-list-item [movie]="movie.value" (remove)="removeMovie(movie)"></app-movie-list-item>
   </li>
 </ul>

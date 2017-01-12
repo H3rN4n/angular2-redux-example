@@ -31,12 +31,13 @@ export class MovieDetailComponent implements OnInit {
   }
 
   getMovie(id){
-    this.moviesService.getMovieById(id).subscribe(
-      response => {
-        this.ngRedux.dispatch({ type: 'setMovie', payload: response });
-      },
-      error => {
-        alert(`Unable to get this movie`);
-      });
+    this.ngRedux.dispatch({ type: 'getMovie', payload: this.movieId });
+    // this.moviesService.getMovieById(id).subscribe(
+    //   response => {
+    //     this.ngRedux.dispatch({ type: 'setMovie', payload: response });
+    //   },
+    //   error => {
+    //     alert(`Unable to get this movie`);
+    //   });
   }
 }

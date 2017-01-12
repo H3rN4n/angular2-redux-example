@@ -3,11 +3,11 @@ import { select } from 'ng2-redux';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-movie-item',
-  templateUrl: './movie-item.component.html'
+  selector: 'app-movie-list-item',
+  templateUrl: './movie-list-item.component.html'
 })
 
-export class MovieItemComponent {
+export class MovieListItemComponent {
   @Input() movie: Observable<any>;
   @Output() remove = new EventEmitter<void>();
 }

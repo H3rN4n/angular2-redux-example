@@ -11,7 +11,6 @@ import { NgRedux } from 'ng2-redux';
 import * as redux from 'redux';
 import * as immutable from 'immutable';
 
-
 // @Injectable()
 // export class MoviesActions {
 //     constructor(private redux: NgRedux<any>, public moviesService: MoviesService) { }
@@ -55,8 +54,20 @@ export function movieReducer(state = {}, action) {
         return newState;
     }
 
+    function getMovie(state, action) {
+        let movieId = action.payload;
+        let movie = {
+            name: 'lala',
+            description: 'lalala'
+        };
+        console.log(state);
+        let newState = Object.assign({}, movie);
+        return newState;
+    }
+
     switch (action.type) {
         case 'setMovie': return setMovie(state, action);
+        case 'getMovie': return getMovie(state, action);
         default: return state;
     }
 };

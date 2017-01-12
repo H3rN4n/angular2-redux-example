@@ -11,7 +11,7 @@ const createLogger = require('redux-logger');
 //PIPES
 import { KeysPipe } from '../shared/pipes/keys.pipe';
 
-import { MovieItemComponent } from './components/movie-item.component';
+import { MovieListItemComponent } from './components/movie-list-item.component';
 import { AddMovieFormComponent } from './components/add-movie-form.component';
 import { MovieDetailComponent } from './components/movie-detail.component';
 
@@ -21,7 +21,7 @@ import { MoviesService } from './movies.service';
 @NgModule({
   declarations: [
     KeysPipe,
-    MovieItemComponent,
+    MovieListItemComponent,
     moviesRoutableComponents,
     AddMovieFormComponent,
   ],
