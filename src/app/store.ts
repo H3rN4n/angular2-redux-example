@@ -39,7 +39,6 @@ export function moviesReducer(state = {}, action) {
         return newState;
     }
 
-    //console.log(action);
     switch (action.type) {
         case 'add': return addMovie(state, action);
         case 'remove': return removeMovie(state, action);
@@ -48,6 +47,21 @@ export function moviesReducer(state = {}, action) {
     }
 };
 
+export function movieReducer(state = {}, action) {
+
+    function setMovie(state, action) {
+        let movies = action.payload;
+        let newState = Object.assign({}, movies);
+        return newState;
+    }
+
+    switch (action.type) {
+        case 'setMovie': return setMovie(state, action);
+        default: return state;
+    }
+};
+
 export const rootReducer = redux.combineReducers<any>({
-    movies: moviesReducer
+    movies: moviesReducer,
+    movie: movieReducer
 });

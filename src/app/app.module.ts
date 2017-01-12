@@ -6,44 +6,30 @@ import { AppRoutingModule, routableComponents } from './app.routes';
 import { NgReduxModule, NgRedux, DevToolsExtension } from 'ng2-redux';
 import { rootReducer } from './store';
 
-//PIPES
-import { KeysPipe } from './pipes/keys.pipe';
+import { MoviesModule } from './modules/movies/movies.module';
+import { MoviesRoutingModule } from './modules/movies/movies.routes.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 //import reduxLogger from 'redux-logger';
 const createLogger = require('redux-logger');
 
 import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './components/page-not-found/not-found.component';
-import { MovieItemComponent } from './components/movies/movie-item.component';
-import { AddMovieFormComponent } from './components/movies/add-movie-form.component';
-import { MovieDetailComponent } from './components/movies/movie-detail.component';
-
-import { NavComponent } from './components/shared/nav.component';
-
-//SERVICES
-import { MoviesService } from './components/movies/movies.service';
 
 @NgModule({
   declarations: [
-    KeysPipe,
     AppComponent,
-    NavComponent,
-    MovieItemComponent,
-    routableComponents,
-    AddMovieFormComponent,
-    MovieDetailComponent,
-    PageNotFoundComponent
+    routableComponents
   ],
   imports: [
     BrowserModule,
     FormsModule,
     NgReduxModule,
     AppRoutingModule,
-    HttpModule
+    MoviesModule,
+    HttpModule,
+    SharedModule
   ],
-  providers: [
-    MoviesService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

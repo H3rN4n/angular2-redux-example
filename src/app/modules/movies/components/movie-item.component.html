@@ -1,2 +1,3 @@
 <h3>{{ movie.name }}</h3>
+<a [routerLink]="['/movies/', movie.id]" href="">view</a>
 <button (click)="remove.emit()">remove</button>
