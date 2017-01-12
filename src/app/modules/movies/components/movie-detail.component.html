@@ -1,5 +1,7 @@
 <h3>Movie Detail</h3>
 <button (click)="enableEdit()">Edit</button>
 
-{{movies$ | async | json}}
-{{currentMovie$ | async | json}}
+<app-edit-movie-form *ngIf="isEditing" [movie]="currentMovie$ | async" (edit)="editMovie()" (cancel)="cancelEdition()"></app-edit-movie-form>
+
+<!--{{movies$ | async | json}}-->
+Movie: {{currentMovie$ | async | json}}

@@ -13,6 +13,7 @@ import { KeysPipe } from '../shared/pipes/keys.pipe';
 
 import { MovieListItemComponent } from './components/movie-list-item.component';
 import { AddMovieFormComponent } from './components/add-movie-form.component';
+import { EditMovieFormComponent } from './components/edit-movie-form.component';
 import { MovieDetailComponent } from './components/movie-detail.component';
 
 //SERVICES
@@ -24,6 +25,7 @@ import { MoviesService } from './movies.service';
     MovieListItemComponent,
     moviesRoutableComponents,
     AddMovieFormComponent,
+    EditMovieFormComponent
   ],
   imports: [
     BrowserModule,

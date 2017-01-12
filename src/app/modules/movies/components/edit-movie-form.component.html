@@ -1,0 +1,11 @@
+<hr>
+<h4>Edit Movie</h4>
+<form action="">
+    <label for="movieTitle">Title</label>
+    <input name="movieTitle" type="text" [(ngModel)]="movie.name">
+    <label for="movieDesc">Description</label>
+    <input name="movieDesc" type="text" [(ngModel)]="movie.description">
+    <button (click)="edit.emit()">add</button>
+    <button (click)="cancel.emit()">cancel</button>
+</form>
+<hr>
