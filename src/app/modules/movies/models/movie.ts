@@ -1,5 +1,5 @@
 export class Movie {
-    id: number;
+    _id: number;
     name: string;
     description: string;
     cast: {
@@ -9,5 +9,13 @@ export class Movie {
 
     constructor(values: Object = {}) {
         Object.assign(this, values);
+    }
+
+    set id(param) {
+        if (typeof param !== 'number') throw 'The movie id must be a number'
+        this._id = param;
+    }
+    get id(){
+        return this._id;
     }
 }

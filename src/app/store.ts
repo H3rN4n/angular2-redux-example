@@ -46,7 +46,7 @@ export function moviesReducer(state = {}, action) {
     }
 };
 
-export function movieReducer(state = {}, action) {
+export function currentMovieReducer(state = {}, action) {
 
     function setMovie(state, action) {
         let movies = action.payload;
@@ -74,5 +74,5 @@ export function movieReducer(state = {}, action) {
 
 export const rootReducer = redux.combineReducers<any>({
     movies: moviesReducer,
-    movie: movieReducer
+    currentMovie: currentMovieReducer
 });

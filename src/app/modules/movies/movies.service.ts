@@ -11,7 +11,7 @@ export class MoviesService {
   movies: Movie[] = [];
   // API endpoint
   //private BASE_URL: string = 'http://localhost:3000/movie/';
-  private BASE_URL: string = 'https://dzt9ceh093.execute-api.us-east-1.amazonaws.com/dev/movie/';
+  private BASE_URL: string = 'https://zr9odhg4p6.execute-api.us-east-1.amazonaws.com/dev/movie/';
   constructor(private http: Http) {}
 
   // POST
@@ -38,11 +38,14 @@ export class MoviesService {
   // GET by Id
   public getMovieById(id: number) {
     let options = new RequestOptions({
-      headers: new Headers({ 'Content-Type': 'application/json;charset=UTF-8' })
+      //headers: new Headers({ 'Content-Type': 'application/json;charset=UTF-8' })
     });
 
     return this.http.get(`${this.BASE_URL}${id}`, options)
-      .map((res: Response) => res.json())
+      .map((res: Response) => {
+        let movie: Movie = new Movie(Object.assign({}, res.json().payload.Item, {id: id}));
+        return movie;
+      })
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 

@@ -1,2 +1,5 @@
 <h3>Movie Detail</h3>
-{{movie$ | async | json}}
+<button (click)="enableEdit()">Edit</button>
+
+{{movies$ | async | json}}
+{{currentMovie$ | async | json}}

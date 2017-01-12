@@ -13,7 +13,9 @@ import { Router, ActivatedRoute} from '@angular/router';
 })
 export class MovieDetailComponent implements OnInit {
 
-  @select() movie$: Observable<any>;
+  @select() movies$: Observable<any>;
+  @select() currentMovie$: Observable<any>;
+  
   public movieId: number;
 
   constructor(
@@ -31,13 +33,13 @@ export class MovieDetailComponent implements OnInit {
   }
 
   getMovie(id){
-    this.ngRedux.dispatch({ type: 'getMovie', payload: this.movieId });
-    // this.moviesService.getMovieById(id).subscribe(
-    //   response => {
-    //     this.ngRedux.dispatch({ type: 'setMovie', payload: response });
-    //   },
-    //   error => {
-    //     alert(`Unable to get this movie`);
-    //   });
+    //this.ngRedux.dispatch({ type: 'getMovie', payload: this.movieId });
+    this.moviesService.getMovieById(id).subscribe(
+      response => {
+        this.ngRedux.dispatch({ type: 'setMovie', payload: response });
+      },
+      error => {
+        alert(`Unable to get this movie`);
+      });
   }
 }
