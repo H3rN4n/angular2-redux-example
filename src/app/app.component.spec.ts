@@ -3,8 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { NgReduxModule, NgRedux } from 'ng2-redux';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { MovieItemComponent } from './components/movie-item.component';
-import { AddMovieFormComponent } from './components/add-movie-form.component';
+import { MovieItemComponent } from './components/movies/movie-item.component';
+import { AddMovieFormComponent } from './components/movies/add-movie-form.component';
 //import { select } from 'ng2-redux';
 import { rootReducer } from './store';
 

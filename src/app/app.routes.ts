@@ -2,14 +2,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { MoviesComponent } from './components/movies/movies.component';
+import { MovieDetailComponent } from './components/movies/movie-detail.component';
+import { PageNotFoundComponent } from './components/page-not-found/not-found.component';
 
 const appRoutes: Routes = [
   {
-    path: 'titles',
+    path: 'movies',
     component: MoviesComponent
   },
+  {
+    path: 'movie-detail',
+    component: MovieDetailComponent
+  },
   { path: '',
-    redirectTo: '/titles',
+    redirectTo: '/movies',
+    pathMatch: 'full'
+  },
+  { path: '**',
+    component: PageNotFoundComponent,
     pathMatch: 'full'
   }
   // { path: 'playground', loadChildren: 'app/playground/playground.module#PlaygroundModule' }
@@ -22,5 +32,7 @@ const appRoutes: Routes = [
 export class AppRoutingModule {}
 
 export const routableComponents = [
-    MoviesComponent
+    MoviesComponent,
+    MovieDetailComponent,
+    PageNotFoundComponent
 ];

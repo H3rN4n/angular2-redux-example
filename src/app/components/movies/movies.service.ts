@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Movie } from '../models/movie';
+import { Movie } from '../../models/movie';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 

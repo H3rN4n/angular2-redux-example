@@ -8,10 +8,10 @@ import { MoviesService } from './movies.service';
 
 @Component({
   //selector: 'app-root',
-  templateUrl: './movies.component.html',
+  templateUrl: './movie-detail.component.html',
   //styleUrls: ['./app.component.css']
 })
-export class MoviesComponent implements OnInit {
+export class MovieDetailComponent implements OnInit {
   public newMovie = new Movie({});
 
   @select() movies$: Observable<any>;
