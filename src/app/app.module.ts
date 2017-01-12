@@ -33,11 +33,24 @@ import { AppComponent } from './app.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(ngRedux: NgRedux<any>) {
-    ngRedux.configureStore(rootReducer, {}, [createLogger({
-      level: 'info',
-      collapsed: true,
-      //stateTransformer: deimmutify
-    })]);
+  constructor(private ngRedux: NgRedux<any>, private devTools: DevToolsExtension) {
+    let enhancers = [];
+    // ... add whatever other enhancers you want.
+
+    // You probably only want to expose this tool in devMode.
+    if (devTools.isEnabled()) {
+      enhancers = [...enhancers, devTools.enhancer()];
+    }
+
+    ngRedux.configureStore(
+      rootReducer,
+      {},
+      [createLogger({
+        level: 'info',
+        collapsed: true,
+        //stateTransformer: deimmutify
+      })],
+      enhancers
+    );
   }
 }
