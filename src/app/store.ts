@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 import { NgRedux } from 'ng2-redux';
 import { routerReducer } from 'ng2-redux-router';
 import * as redux from 'redux';
-import * as immutable from 'immutable';
+//import * as immutable from 'immutable';
 
 // @Injectable()
 // export class MoviesActions {
