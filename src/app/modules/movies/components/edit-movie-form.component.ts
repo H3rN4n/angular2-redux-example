@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+//import { provideReduxForms } from 'ng2-redux-form';
 
 @Component({
   selector: 'app-edit-movie-form',

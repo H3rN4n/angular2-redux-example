@@ -8,6 +8,7 @@
 
 import { Injectable } from '@angular/core';
 import { NgRedux } from 'ng2-redux';
+import { routerReducer } from 'ng2-redux-router';
 import * as redux from 'redux';
 import * as immutable from 'immutable';
 
@@ -54,25 +55,22 @@ export function currentMovieReducer(state = {}, action) {
         return newState;
     }
 
-    function getMovie(state, action) {
-        let movieId = action.payload;
-        let movie = {
-            name: 'lala',
-            description: 'lalala'
-        };
-        console.log(state);
-        let newState = Object.assign({}, movie);
-        return newState;
+    function saveMovieEdition(state, action){
+        console.log(state, action);
+        state = Object.assign({},action.payload)
+        return state;
     }
 
     switch (action.type) {
-        case 'setMovie': return setMovie(state, action);
-        case 'getMovie': return getMovie(state, action);
+        case 'setCurrentMovie': return setMovie(state, action);
+        //case 'cancelMovieEdition': return cancelMovieEdition(state, action);
+        case 'saveMovieEdition': return saveMovieEdition(state, action);
         default: return state;
     }
 };
 
 export const rootReducer = redux.combineReducers<any>({
     movies: moviesReducer,
-    currentMovie: currentMovieReducer
+    currentMovie: currentMovieReducer,
+    router: routerReducer
 });
